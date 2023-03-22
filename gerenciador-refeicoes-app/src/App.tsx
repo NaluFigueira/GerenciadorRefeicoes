@@ -1,34 +1,39 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/mask-icon.svg";
-import "./App.css";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import MainMenuItem from "./components/MainMenuItem";
 import ReloadPrompt from "./components/ReloadPrompt";
 
-function App() {
-  const [count, setCount] = useState(0);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div className="h-full flex flex-col space-y-20 items-center justify-center">
+        <h1 className="text-2xl md:text-6xl">Gerenciador de refeições</h1>
+        <div className="grid grid-rows-3 gap-5 lg:grid-cols-3 lg:gap-4 lg:grid-rows-none">
+          <MainMenuItem pageRoute="receitas" title="Receitas" />
+          <MainMenuItem pageRoute="cardapio" title="Cardápio" />
+          <MainMenuItem pageRoute="compras" title="Lista de Compras" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    path: "receitas",
+    element: <div>Receitas</div>,
+  },
+  {
+    path: "cardapio",
+    element: <div>Cardápio</div>,
+  },
+  {
+    path: "compras",
+    element: <div>Lista de Compras</div>,
+  },
+]);
 
+function App() {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="bg-gray-700 h-screen text-white m-0">
+      <RouterProvider router={router} />
       <ReloadPrompt />
     </div>
   );

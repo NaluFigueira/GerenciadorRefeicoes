@@ -1,7 +1,7 @@
 import React from "react";
-import "./ReloadPrompt.css";
 
 import { useRegisterSW } from "virtual:pwa-register/react";
+import ReloadPromptButton from "./ReloadPromptButton";
 
 function ReloadPrompt() {
   const {
@@ -23,29 +23,26 @@ function ReloadPrompt() {
   };
 
   return (
-    <div className="ReloadPrompt-container">
+    <div className="p-0 m-0 w-0 h-0">
       {(offlineReady || needRefresh) && (
-        <div className="ReloadPrompt-toast">
-          <div className="ReloadPrompt-message">
+        <div className="fixed right-0 bottom-0 m-4 p-3 border border-solid rounded border-black z-10 text-left shadow-md bg-white">
+          <div className="mb-2 text-black">
             {offlineReady ? (
-              <span>App ready to work offline</span>
+              <span>Aplicação pronta para ficar offline</span>
             ) : (
               <span>
-                New content available, click on reload button to update.
+                Novo conteúdo disponível, clique no botão de recarregar para
+                atualizar.
               </span>
             )}
           </div>
           {needRefresh && (
-            <button
-              className="ReloadPrompt-toast-button"
+            <ReloadPromptButton
               onClick={() => updateServiceWorker(true)}
-            >
-              Reload
-            </button>
+              title={"Recarregar"}
+            />
           )}
-          <button className="ReloadPrompt-toast-button" onClick={() => close()}>
-            Close
-          </button>
+          <ReloadPromptButton onClick={() => close()} title={"Fechar"} />
         </div>
       )}
     </div>

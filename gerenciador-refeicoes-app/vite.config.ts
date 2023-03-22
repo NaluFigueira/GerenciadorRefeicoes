@@ -15,9 +15,9 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
       manifest: {
-        name: "My Awesome App",
-        short_name: "MyApp",
-        description: "My Awesome App description",
+        name: "Gerenciador de Soluções",
+        short_name: "Gerenciador",
+        description: "Gerencie suas receitas, cardápios e listas de compras.",
         theme_color: "#ffffff",
         icons: [
           {
