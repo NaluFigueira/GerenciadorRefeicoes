@@ -1,5 +1,7 @@
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import React, { Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainMenuItem from "./components/MainMenuItem";
+import Recipes from "./components/Recipes";
 import ReloadPrompt from "./components/ReloadPrompt";
 
 const router = createBrowserRouter([
@@ -18,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "receitas",
-    element: <div>Receitas</div>,
+    element: <Recipes />,
   },
   {
     path: "cardapio",

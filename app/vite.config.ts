@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import federation from "@originjs/vite-plugin-federation";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -42,5 +43,26 @@ export default defineConfig({
         enabled: true,
       },
     }),
+    federation({
+      name: "host-app",
+      remotes: {
+        remote_app: "http://localhost:5000/assets/remoteEntry.js",
+      },
+      shared: ["react"],
+    }),
   ],
+  build: {
+    modulePreload: false,
+    target: "esnext",
+    minify: false,
+    cssCodeSplit: false,
+  },
+  preview: {
+    host: "localhost",
+    port: 5001,
+    strictPort: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  },
 });
