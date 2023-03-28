@@ -3,6 +3,7 @@ import MainMenuItem from "./components/MainMenuItem";
 import MealPlan from "./components/MealPlan";
 import Recipes from "./components/Recipes";
 import ReloadPrompt from "./components/ReloadPrompt";
+import ShoppingList from "./components/ShoppingList";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "compras",
-    element: <div>Lista de Compras</div>,
+    element: <ShoppingList />,
   },
 ]);
 

@@ -48,6 +48,7 @@ export default defineConfig({
       remotes: {
         recipes: "http://localhost:5000/assets/recipes.js",
         meal_plan: "http://localhost:5002/assets/mealPlan.js",
+        shopping_list: "http://localhost:5003/assets/shoppingList.js",
       },
       shared: ["react"],
     }),
