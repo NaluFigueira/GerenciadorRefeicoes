@@ -1,1 +1,2 @@
-declare module "remote_app/*";
+declare module "meal_plan/*";
+declare module "recipes/*";

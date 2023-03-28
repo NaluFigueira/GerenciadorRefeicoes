@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 
-const RecipesMFE = React.lazy(() => import("remote_app/App"));
+const RecipesMFE = React.lazy(() => import("recipes/App"));
 
 const Recipes: React.FC = () => {
   return (

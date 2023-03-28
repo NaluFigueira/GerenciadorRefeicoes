@@ -11,8 +11,8 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "recipes",
-      filename: "recipes.js",
+      name: "meal-plan",
+      filename: "mealPlan.js",
       exposes: {
         "./App": "./src/App.tsx",
       },
@@ -27,7 +27,7 @@ export default defineConfig({
   },
   preview: {
     host: "localhost",
-    port: 5000,
+    port: 5002,
     strictPort: true,
     headers: {
       "Access-Control-Allow-Origin": "*",

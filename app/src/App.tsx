@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainMenuItem from "./components/MainMenuItem";
+import MealPlan from "./components/MealPlan";
 import Recipes from "./components/Recipes";
 import ReloadPrompt from "./components/ReloadPrompt";
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "cardapio",
-    element: <div>Cardápio</div>,
+    element: <MealPlan />,
   },
   {
     path: "compras",

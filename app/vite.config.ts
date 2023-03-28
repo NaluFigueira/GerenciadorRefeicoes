@@ -46,7 +46,8 @@ export default defineConfig({
     federation({
       name: "host-app",
       remotes: {
-        remote_app: "http://localhost:5000/assets/remoteEntry.js",
+        recipes: "http://localhost:5000/assets/recipes.js",
+        meal_plan: "http://localhost:5002/assets/mealPlan.js",
       },
       shared: ["react"],
     }),
