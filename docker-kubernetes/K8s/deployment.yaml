@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: gerenciador-refeicoes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gerenciador-refeicoes
+  template:
+    metadata:
+      labels:
+        app: gerenciador-refeicoes
+    spec:
+      containers:
+        - name: meal-plan-app
+          image: gerenciador_refeicoes/meal-plan-app-docker
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
