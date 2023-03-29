@@ -16,7 +16,7 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
       manifest: {
-        name: "Gerenciador de Soluções",
+        name: "Gerenciador de Refeições",
         short_name: "Gerenciador",
         description: "Gerencie suas receitas, cardápios e listas de compras.",
         theme_color: "#ffffff",
@@ -46,7 +46,7 @@ export default defineConfig({
     federation({
       name: "host-app",
       remotes: {
-        recipes: "http://localhost:5000/assets/recipes.js",
+        recipes: "http://localhost:5001/assets/recipes.js",
         meal_plan: "http://localhost:5002/assets/mealPlan.js",
         shopping_list: "http://localhost:5003/assets/shoppingList.js",
       },
@@ -61,7 +61,7 @@ export default defineConfig({
   },
   preview: {
     host: "localhost",
-    port: 5001,
+    port: 3000,
     strictPort: true,
     headers: {
       "Access-Control-Allow-Origin": "*",
