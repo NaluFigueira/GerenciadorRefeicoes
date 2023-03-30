@@ -5,8 +5,8 @@ import federation from "@originjs/vite-plugin-federation";
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    open: true,
-    host: true,
+    host: "0.0.0.0",
+    port: 5003,
   },
   plugins: [
     react(),

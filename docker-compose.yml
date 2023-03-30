@@ -1,0 +1,31 @@
+version: "1.0"
+name: gerenciador-refeicoes
+services:
+  main-app:
+    build:
+      context: ./client/app
+    ports:
+      - "3000:80"
+    container_name: main-app
+    stdin_open: true
+  recipes-app:
+    build:
+      context: ./client/recipes
+    ports:
+      - "5001:80"
+    container_name: recipes-app
+    stdin_open: true
+  meal-plan-app:
+    build:
+      context: ./client/mealPlan
+    ports:
+      - "5002:80"
+    container_name: meal-plan-app
+    stdin_open: true
+  shopping-list-app:
+    build:
+      context: ./client/shoppingList
+    ports:
+      - "5003:80"
+    container_name: shopping-list-app
+    stdin_open: true

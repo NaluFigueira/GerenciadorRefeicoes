@@ -1,3 +1,27 @@
-FROM nginx:stable-alpine
+# pull official base image
+FROM node:lts-alpine as builder
 
-COPY dist/ /usr/share/nginx/html
+# set working directory
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# microfrontend envs
+ENV REACT_APP_RECIPES_MICROFRONTEND_URL http://localhost:5001/assets/recipes.js
+ENV REACT_APP_MEAL_PLAN_MICROFRONTEND_URL http://localhost:5002/assets/mealPlan.js
+ENV REACT_APP_SHOPPING_LIST_MICROFRONTEND_URL http://localhost:5003/assets/shoppingList.js
+
+# install app dependencies
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn
+
+# add app
+COPY . ./
+
+EXPOSE 3000 80
+
+# start app
+CMD ["npm", "run", "dev"]
+

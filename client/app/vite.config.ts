@@ -6,8 +6,8 @@ import federation from "@originjs/vite-plugin-federation";
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    open: true,
-    host: true,
+    host: "0.0.0.0",
+    port: 3000,
   },
   plugins: [
     react(),
@@ -46,9 +46,9 @@ export default defineConfig({
     federation({
       name: "host-app",
       remotes: {
-        recipes: "http://localhost:5001/assets/recipes.js",
-        meal_plan: "http://localhost:5002/assets/mealPlan.js",
-        shopping_list: "http://localhost:5003/assets/shoppingList.js",
+        recipes: process.env.REACT_APP_RECIPES_MICROFRONTEND_URL,
+        meal_plan: process.env.REACT_APP_MEAL_PLAN_MICROFRONTEND_URL,
+        shopping_list: process.env.REACT_APP_SHOPPING_LIST_MICROFRONTEND_URL,
       },
       shared: ["react"],
     }),
