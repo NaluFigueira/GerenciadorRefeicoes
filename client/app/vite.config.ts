@@ -45,11 +45,25 @@ export default defineConfig({
     }),
     federation({
       name: "host-app",
-      remotes: {
-        recipes: process.env.REACT_APP_RECIPES_MICROFRONTEND_URL,
-        meal_plan: process.env.REACT_APP_MEAL_PLAN_MICROFRONTEND_URL,
-        shopping_list: process.env.REACT_APP_SHOPPING_LIST_MICROFRONTEND_URL,
-      },
+      remotes: [
+        {
+          recipes: {
+            external: "Promise.resolve(window.recipesUrl)",
+            from: "vite",
+            externalType: "promise",
+          },
+          meal_plan: {
+            external: "Promise.resolve(window.mealPlan)",
+            from: "vite",
+            externalType: "promise",
+          },
+          shopping_list: {
+            external: "Promise.resolve(window.shoppingList)",
+            from: "vite",
+            externalType: "promise",
+          },
+        },
+      ],
       shared: ["react"],
     }),
   ],

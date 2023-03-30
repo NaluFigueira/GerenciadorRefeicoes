@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainMenuItem from "./components/MainMenuItem";
 import MealPlan from "./components/MealPlan";
@@ -34,6 +35,25 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useEffect(() => {
+    // This is not as elegant as production code as we cannot use such in production.
+    // But lets assume these envs are coming from a environment handler.
+    // And this is only for sample case.
+    if (import.meta.env.VITE_RECIPES_MICROFRONTEND_URL) {
+      // This is where we set the payment remote's URL.
+      window.recipesUrl = import.meta.env.VITE_RECIPES_MICROFRONTEND_URL;
+    }
+    if (import.meta.env.VITE_MEAL_PLAN_MICROFRONTEND_URL) {
+      // This is where we set the payment remote's URL.
+      window.mealPlanUrl = import.meta.env.VITE_MEAL_PLAN_MICROFRONTEND_URL;
+    }
+    if (import.meta.env.VITE_SHOPPING_LIST_MICROFRONTEND_URL) {
+      // This is where we set the payment remote's URL.
+      window.shoppingListUrl =
+        import.meta.env.VITE_SHOPPING_LIST_MICROFRONTEND_URL;
+    }
+  }, []);
+
   return (
     <div className="bg-gray-700 h-screen text-white m-0">
       <RouterProvider router={router} />
