@@ -8,9 +8,9 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # microfrontend envs
-ENV REACT_APP_RECIPES_MICROFRONTEND_URL http://localhost:5001/assets/recipes.js
-ENV REACT_APP_MEAL_PLAN_MICROFRONTEND_URL http://localhost:5002/assets/mealPlan.js
-ENV REACT_APP_SHOPPING_LIST_MICROFRONTEND_URL http://localhost:5003/assets/shoppingList.js
+ENV REACT_APP_RECIPES_MICROFRONTEND_URL http://recipes:5001/assets/recipes.js
+ENV REACT_APP_MEAL_PLAN_MICROFRONTEND_URL http://meal-plan:5002/assets/mealPlan.js
+ENV REACT_APP_SHOPPING_LIST_MICROFRONTEND_URL http://shopping-list:5003/assets/shoppingList.js
 
 # install app dependencies
 COPY package.json ./
