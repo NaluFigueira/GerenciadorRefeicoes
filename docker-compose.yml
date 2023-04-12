@@ -8,44 +8,24 @@ services:
       - "3000:3000"
     container_name: main-app
     stdin_open: true
-    networks:
-      - network
-    labels:
-      NAME: main
   recipes-app:
     build:
       context: ./client/recipes
     ports:
-      - "5001:80"
+      - "3001:80"
     container_name: recipes-app
     stdin_open: true
-    networks:
-      - network
-    labels:
-      NAME: recipes
   meal-plan-app:
     build:
       context: ./client/mealPlan
     ports:
-      - "5002:80"
+      - "3004:80"
     container_name: meal-plan-app
     stdin_open: true
-    networks:
-      - network
-    labels:
-      NAME: meal-plan
   shopping-list-app:
     build:
       context: ./client/shoppingList
     ports:
-      - "5003:80"
+      - "3003:80"
     container_name: shopping-list-app
     stdin_open: true
-    networks:
-      - network
-    labels:
-      NAME: shopping-list
-
-networks:
-  network:
-    driver: bridge

@@ -53,12 +53,12 @@ export default defineConfig({
             externalType: "promise",
           },
           meal_plan: {
-            external: "Promise.resolve(window.mealPlan)",
+            external: "Promise.resolve(window.mealPlanUrl)",
             from: "vite",
             externalType: "promise",
           },
           shopping_list: {
-            external: "Promise.resolve(window.shoppingList)",
+            external: "Promise.resolve(window.shoppingListUrl)",
             from: "vite",
             externalType: "promise",
           },
