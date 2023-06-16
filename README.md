@@ -20,4 +20,4 @@
   </a>
 </p>
 
-For more details on the project idea, check our wiki page!
+For more details on the project idea, check our [wiki page at Azure](https://dev.azure.com/anachfigueira/NanoRecipes/_wiki/wikis/NanoRecipes.wiki/1/Nano-Recipes)!
